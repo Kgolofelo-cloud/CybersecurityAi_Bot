@@ -14,7 +14,10 @@ namespace CybersecurityAi_Bot
             Cyber_Bot myBot = new Cyber_Bot();
 
             // Call the greeting method
+            myBot.PlayVoiceGreeting();
             myBot.ShowGreeting();
+
+           
         }
     }
 }
