@@ -16,8 +16,10 @@ namespace CybersecurityAi_Bot
             // Call the greeting method
             myBot.PlayVoiceGreeting();
             myBot.ShowGreeting();
+            myBot.StartChatting();
 
-           
+
+
         }
     }
 }
