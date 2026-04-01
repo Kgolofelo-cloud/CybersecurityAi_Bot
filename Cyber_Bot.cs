@@ -70,14 +70,14 @@ namespace CybersecurityAi_Bot
 
             // Personalise the response
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"\nHello, {UserName}! It is great to meet you.");
+            Typewriter($"\nHello, {UserName}! It is great to meet you.");
             Console.ResetColor();
         }
         public void StartChatting()
 
         {
 
-            Console.WriteLine("\nYou can start asking me questions. Type 'exit' to leave the chat.");
+            Typewriter("\nYou can start asking me questions. Type 'exit' to leave the chat.");
 
             // 1. Set up the infinite loop so the bot keeps listening
 
@@ -96,7 +96,7 @@ namespace CybersecurityAi_Bot
                 if (string.IsNullOrWhiteSpace(input))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("[Bot]: I didn't quite understand that. Could you rephrase?"); // Required phrase
+                    Typewriter("[Bot]: I didn't quite understand that. Could you rephrase?"); // Required phrase
                     Console.ResetColor();
                     continue; // This skips the rest of the loop and starts over at the top!
                 }
@@ -111,7 +111,7 @@ namespace CybersecurityAi_Bot
 
                 {
 
-                    Console.WriteLine("[Bot]: Goodbye! Stay safe online.");
+                    Typewriter("[Bot]: Goodbye! Stay safe online.");
 
                     break; // This breaks us out of the while loop entirely
 
@@ -125,7 +125,7 @@ namespace CybersecurityAi_Bot
 
                 {
 
-                    Console.WriteLine("[Bot]: I'm functioning perfectly, thank you! How can I help you secure your data today?");
+                    Typewriter("[Bot]: I'm functioning perfectly, thank you! How can I help you secure your data today?");
 
                 }
 
@@ -133,7 +133,7 @@ namespace CybersecurityAi_Bot
 
                 {
 
-                    Console.WriteLine("[Bot]: My purpose is to spread cybersecurity awareness and help you protect your digital life.");
+                    Typewriter("[Bot]: My purpose is to spread cybersecurity awareness and help you protect your digital life.");
 
                 }
 
@@ -141,7 +141,7 @@ namespace CybersecurityAi_Bot
 
                 {
 
-                    Console.WriteLine("[Bot]: You can ask me about password safety, phishing, and safe browsing!");
+                    Typewriter("[Bot]: You can ask me about password safety, phishing, and safe browsing!");
 
                 }
 
@@ -149,7 +149,7 @@ namespace CybersecurityAi_Bot
 
                 {
 
-                    Console.WriteLine("[Bot]: Always use strong, unique passwords. A mix of uppercase, lowercase, numbers, and symbols is best.");
+                    Typewriter("[Bot]: Always use strong, unique passwords. A mix of uppercase, lowercase, numbers, and symbols is best.");
 
                 }
 
@@ -157,7 +157,7 @@ namespace CybersecurityAi_Bot
 
                 {
 
-                    Console.WriteLine("[Bot]: Phishing is when scammers try to trick you into revealing sensitive info. Don't click suspicious links!");
+                    Typewriter("[Bot]: Phishing is when scammers try to trick you into revealing sensitive info. Don't click suspicious links!");
 
                 }
 
@@ -165,7 +165,7 @@ namespace CybersecurityAi_Bot
 
                 {
 
-                    Console.WriteLine("[Bot]: For safe browsing, ensure websites use HTTPS and avoid public Wi-Fi for banking.");
+                    Typewriter("[Bot]: For safe browsing, ensure websites use HTTPS and avoid public Wi-Fi for banking.");
 
                 }
 
@@ -175,7 +175,7 @@ namespace CybersecurityAi_Bot
 
                     // Task 5: Default response for unsupported queries
 
-                    Console.WriteLine("[Bot]: I didn't quite understand that. Could you rephrase?");
+                    Typewriter("[Bot]: I didn't quite understand that. Could you rephrase?");
 
                 }
 
@@ -185,6 +185,18 @@ namespace CybersecurityAi_Bot
 
             }
 
+        }
+        public void Typewriter(string message)
+        {
+            // A foreach loop goes through the string one letter at a time
+            foreach (char c in message)
+            {
+                Console.Write(c); // Notice this is Write, not WriteLine!
+                                  // This pauses the program for 30 milliseconds between each letter
+                System.Threading.Thread.Sleep(30);
+            }
+            // Once the whole sentence is typed, jump to the next line
+            Console.WriteLine();
         }
 
     }
